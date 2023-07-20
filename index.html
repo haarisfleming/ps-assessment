@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiple Choice Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ol {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    li p {
+      font-weight: bold;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      margin: 100px auto;
+      border-radius: 5px;
+    }
+
+    .close {
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: red;
+    }
+
+    .popup.show {
+      display: block;
+    }
+
+    /* Style the Submit button */
+    input[type="button"] {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="button"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Select The Choices You Made</h1>
+  <form id="quiz-form">
+    <ol>
+      <li>
+        <p>Question 1</p>
+        <label>
+          <input type="radio" name="q1" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q1" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q1" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q1" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 2</p>
+        <label>
+          <input type="radio" name="q2" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q2" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q2" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q2" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 3</p>
+        <label>
+          <input type="radio" name="q3" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q3" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q3" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q3" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 4</p>
+        <label>
+          <input type="radio" name="q4" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q4" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q4" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q4" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 5</p>
+        <label>
+          <input type="radio" name="q5" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q5" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q5" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q5" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 6</p>
+        <label>
+          <input type="radio" name="q6" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q6" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q6" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q6" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 7</p>
+        <label>
+          <input type="radio" name="q7" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q7" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q7" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q7" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 8</p>
+        <label>
+          <input type="radio" name="q8" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q8" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q8" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q8" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 9</p>
+        <label>
+          <input type="radio" name="q9" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q9" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q9" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q9" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 10</p>
+        <label>
+          <input type="radio" name="q10" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q10" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q10" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q10" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 11</p>
+        <label>
+          <input type="radio" name="q11" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q11" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q11" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q11" value="d"> D
+        </label>
+      </li>
+      <li>
+        <p>Question 12</p>
+        <label>
+          <input type="radio" name="q12" value="a"> A
+        </label>
+        <label>
+          <input type="radio" name="q12" value="b"> B
+        </label>
+        <label>
+          <input type="radio" name="q12" value="c"> C
+        </label>
+        <label>
+          <input type="radio" name="q12" value="d"> D
+        </label>
+      </li>
+    </ol>
+    <input type="button" value="Submit" onclick="submitQuiz()">
+  </form>
+  <div id="result-popup" class="popup" onclick="closePopup()">
+    <div class="popup-content" onclick="event.stopPropagation()">
+      <span class="close" onclick="closePopup()">&times;</span>
+      <div id="result-content"></div>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code (as provided in the previous responses)
+    const correctAnswers = ["c", "b", "c", "a", "a", "d", "b", "b", "b", "d", "d", "b"];
+
+    function submitQuiz() {
+      const formData = new FormData(document.getElementById("quiz-form"));
+      let score = 0;
+      let marks = { ideator: 0, clarifier: 0, developer: 0, implementer: 0 };
+
+      for (let i = 1; i <= 12; i++) {
+        const userAnswer = formData.get(`q${i}`);
+        if (userAnswer === correctAnswers[i - 1]) {
+          score++;
+        }
+
+        // Count the marks for each representation (Ideator, Clarifier, Developer, Implementer) based on the question's mappings
+        const questionMappings = getQuestionMappings(i);
+        marks.ideator += questionMappings[userAnswer].ideator;
+        marks.clarifier += questionMappings[userAnswer].clarifier;
+        marks.developer += questionMappings[userAnswer].developer;
+        marks.implementer += questionMappings[userAnswer].implementer;
+      }
+
+      // Calculate percentages for each category
+      const totalMarks = 12;
+      const ideatorPercentage = (marks.ideator / totalMarks) * 100;
+      const clarifierPercentage = (marks.clarifier / totalMarks) * 100;
+      const developerPercentage = (marks.developer / totalMarks) * 100;
+      const implementerPercentage = (marks.implementer / totalMarks) * 100;
+
+      displayResultPopup(score, ideatorPercentage, clarifierPercentage, developerPercentage, implementerPercentage);
+    }
+
+    function getQuestionMappings(questionNumber) {
+  switch (questionNumber) {
+    case 1:
+      return {
+        a: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        b: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+      };
+    case 2:
+      return {
+        a: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        b: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        d: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+      };
+    case 3:
+      return {
+        a: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        b: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+      };
+    case 4:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        b: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        c: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        d: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+      };
+    case 5:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        b: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        c: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        d: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+      };
+    case 6:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        b: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        c: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        d: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+      };
+    case 7:
+      return {
+        a: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        b: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+      };
+    case 8:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        b: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+      };
+    case 9:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        b: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+      };
+    case 10:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        b: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+      };
+    case 11:
+      return {
+        a: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        b: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+      };
+    case 12:
+      return {
+        a: { ideator: 0, clarifier: 0, developer: 0, implementer: 1 },
+        b: { ideator: 1, clarifier: 0, developer: 0, implementer: 0 },
+        c: { ideator: 0, clarifier: 0, developer: 1, implementer: 0 },
+        d: { ideator: 0, clarifier: 1, developer: 0, implementer: 0 },
+      };
+    default:
+      return { ideator: {}, clarifier: {}, developer: {}, implementer: {} };
+  }
+}
+
+    function displayResultPopup(score, ideatorPercentage, clarifierPercentage, developerPercentage, implementerPercentage) {
+      const popup = document.getElementById("result-popup");
+      const resultContent = document.getElementById("result-content");
+
+      let resultText = `Hey Mate!<br><br>Out of 12 scenarios, ${score} time(s) you acted ideally.<br><br>`;
+      resultText += `The choices you made tell that while solving a problem,<br> ${ideatorPercentage.toFixed(2)}% of the time you are a Ideator,<br>`;
+      resultText += `${clarifierPercentage.toFixed(2)}% of the time you are a Clarifier,<br>`;
+      resultText += `${developerPercentage.toFixed(2)}% of the time you are a Developer,<br>`;
+      resultText += `and, ${implementerPercentage.toFixed(2)}% of the times you are a Implementer.<br><br>But, you are 100% AWESOME!<br><br>Enjoy Yourself!!`;
+
+      resultContent.innerHTML = resultText;
+      popup.classList.add("show");
+    }
+
+    function closePopup() {
+      const popup = document.getElementById("result-popup");
+      popup.classList.remove("show");
+    }
+  </script>
+</body>
+</html>
