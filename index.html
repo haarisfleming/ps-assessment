@@ -5,34 +5,51 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
+      background-color: #f2f2f2;
     }
 
     h1 {
       text-align: center;
     }
 
-    ol {
-      list-style-type: none;
-      padding: 0;
-    }
-
-    li {
-      margin-bottom: 20px;
-    }
-
-    li p {
-      font-weight: bold;
+    #quiz-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .question {
+      margin-bottom: 15px;
+    }
+
+    .options label {
+      display: inline-block;
       margin-right: 10px;
     }
 
-    input[type="radio"] {
+    .options input[type="radio"] {
       margin-right: 5px;
+    }
+
+    input[type="button"] {
+      display: block;
+      margin: 20px auto 0;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .popup {
@@ -46,44 +63,23 @@
     }
 
     .popup-content {
-      background-color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 80%;
+      background-color: #ffffff;
       padding: 20px;
-      width: 80%;
-      max-width: 400px;
-      margin: 100px auto;
       border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     .close {
-      float: right;
+      position: absolute;
+      top: 10px;
+      right: 10px;
       font-size: 20px;
-      font-weight: bold;
       cursor: pointer;
-    }
-
-    .close:hover {
-      color: red;
-    }
-
-    .popup.show {
-      display: block;
-    }
-
-    /* Style the Submit button */
-    input[type="button"] {
-      display: block;
-      margin: 30px auto 0;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    input[type="button"]:hover {
-      background-color: #0056b3;
     }
   </style>
 </head>
